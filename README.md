@@ -20,3 +20,7 @@ JDK 1.8
 ##### idea添加测试方法模板
 
 ![CreateTestMethodTemplate.png](imgs/CreateTestMethodTemplate.png)
+
+#### 效果展示
+
+![ApiOprLog.png](imgs/ApiOprLog.png)

@@ -6,4 +6,9 @@ package cn.regexp.coding.trainee.common;
  * @description 常量类
  */
 public class Constants {
+
+    /**
+     * 未知
+     */
+    public static final String UNKNOWN = "unknown";
 }
