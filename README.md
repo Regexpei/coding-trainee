@@ -1,37 +1,22 @@
 # coding-trainee
 
-#### 介绍
+#### 项目介绍
 coding-trainee（代码练习生），该项目主要包含日常学习、工作实践、案例分享等内容。在这里，我将分享自己日常积累的编程知识、编程技能，并通过实际案例分享学习成果和心得。
 
-#### 软件架构
-软件架构说明
+#### 分支说明
 
+本项目分支主要分为四种，分别为 base、test、feature、demo，base 分支基于 master 拉取，其它分支基于 base 分支拉取。
+- base: 基础模板代码的分支，比如 SpringBoot、SpringCloud等
+- test: 代码测试用的分支，比如 Java、MySQL、Groovy 等
+- feature: 实现某些功能的分支，比如接口操作记录、分布式链路 ID 实现方案等
+- demo: 某些工具使用案例的分支，比如 Infinispan、Redis 使用案例等
 
-#### 安装教程
+#### 环境配置
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+JDK 1.8
 
-#### 使用说明
+#### IDEA配置
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+##### idea添加测试方法模板
 
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+![CreateTestMethodTemplate.png](imgs/CreateTestMethodTemplate.png)
