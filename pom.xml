@@ -31,6 +31,18 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- 用于构建Web，包括RESTful和基于Servlet的Web应用，包含了Spring MVC、Tomcat等 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- 为Spring Boot应用提供了面向切面编程（AOP）的支持 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
         <!-- 通过注解减少样板代码的Java库，自动生成getter、setter等方法 -->
         <dependency>
             <groupId>org.projectlombok</groupId>

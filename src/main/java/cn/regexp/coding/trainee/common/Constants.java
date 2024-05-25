@@ -6,4 +6,8 @@ package cn.regexp.coding.trainee.common;
  * @description 常量类
  */
 public class Constants {
+    /**
+     * 链路ID
+     */
+    public static final String TRACE_ID = "trace-id";
 }

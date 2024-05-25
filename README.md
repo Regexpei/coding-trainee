@@ -20,3 +20,27 @@ JDK 1.8
 ##### idea添加测试方法模板
 
 ![CreateTestMethodTemplate.png](imgs/CreateTestMethodTemplate.png)
+
+#### 链路 ID 介绍
+
+通过在日志中打印链路ID，有助于更好地跟踪日志信息，从而进行排查问题。
+
+对于链路 ID 的输出，存在三种情况：
+
+1. 普通接口请求
+2. 异步方法执行
+3. MQ消息消费
+
+#### 效果展示
+
+1. 普通接口请求
+   ![TraceId_1.png](imgs/TraceId_1.png)
+
+2. Spring 异步线程
+   ![TraceId_2.png](imgs/TraceId_2.png)
+
+3. 自定义异步线程
+   ![TraceId_3.png](imgs/TraceId_3.png)
+
+4. 其它请求（MQ等）
+   ![TraceId_4.png](imgs/TraceId_4.png)
