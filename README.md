@@ -54,6 +54,8 @@ JDK 1.8
 5. 配置 XxxAutoConfiguration 自动配置类
    - 使用 `@Configuration` 标记为配置类
    - 使用 `@EnableConfigurationProperties(XxxProperties.class)` 绑定配置属性类
+   > @EnableConfigurationProperties 的作用：启用对 @ConfigurationProperties 注解配置类的支持，允许在不添加 @Component 或
+   @Configuration 的情况下，将属性绑定到类上。
 6. 创建 resources/META-INF/spring.factories
     ```factories
     org.springframework.boot.autoconfigure.EnableAutoConfiguration=\  
