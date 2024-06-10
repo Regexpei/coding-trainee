@@ -1,0 +1,24 @@
+# 项目名称
+spring:
+  application:
+    name: coding-trainee
+  datasource:
+    # 数据源类型
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/db1?characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useUnicode=true&useSSL=false&serverTimezone=UTC
+      username: root
+      password: admin
+
+      # Druid 内置监控
+      stat-view-servlet:
+        # 开启监控
+        enabled: true
+      # 启用 stat 过滤器，用于统计监控信息，不配置执行的 SQL 将不会被统计
+      filters: stat
+
+# 关闭 mybatis-flex 启动图标
+mybatis-flex:
+  global-config:
+    print-banner: false
