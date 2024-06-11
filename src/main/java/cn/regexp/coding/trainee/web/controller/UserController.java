@@ -19,6 +19,7 @@ public class UserController {
     @Autowired
     private UserMapper userMapper;
 
+    // localhost:8080/selectAll
     @GetMapping("/selectAll")
     public List<User> selectAll() {
         // 不涉及业务，这里直接使用持久层对象操作，规范应该是调用 Service 层

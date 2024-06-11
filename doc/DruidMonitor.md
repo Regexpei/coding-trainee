@@ -86,9 +86,40 @@ spring.datasource.druid.stat-view-servlet.reset-enable=false
 
 > **注意**：当设置为 false 时，表示禁止重置，但按钮依然在，依然能够操作，只不过操作后并不会清除统计记录。
 
+#### 配置过滤器
+
+`spring.datasource.druid.filters` 用于配置 Druid 数据源连接池中的过滤器，
+能够为数据库连接执行额外的操作，比如日志记录、监控、SQL解析等。
+Druid 中主要提供了 **stat、log4j、wall** 过滤器。
+
+> 如果需要配置多个，可以使用英文逗号“,”进行分割。
+
+1.
+stat：用于统计监控信息，可以通过它来获取连接池的连接数、SQL执行次数、执行时间等信息，对应于 `com.alibaba.druid.filter.stat.StatFilter`
+类。
+> https://github.com/alibaba/druid/wiki/配置_StatFilter
+
+   - `spring.datasource.druid.filter.stat.slow-sql-millis` 用来配置 SQL 慢的标准，即执行时间超过给定时间的就是慢，默认值为3000（3秒），单位毫秒。
+   - `spring.datasource.druid.filter.stat.log-slow-sql` 配置是否将慢 SQL 通过日志输出。
+
+```properties
+# 慢 SQL 标准，超过 1 秒则为慢 SQL
+spring.datasource.druid.filter.stat.slow-sql-millis=1000
+# 将慢 SQL 通过日志输出
+spring.datasource.druid.filter.stat.log-slow-sql=true
+```
+
+2. log4j: 用于记录日志，将日志信息通过SLF4J接口输出。
+3. wall: 防火墙过滤器，用于防止SQL注入等攻击
+
 ### 四、其它
 
 1. 清除 Druid Monitor
    页面底部的广告图，具体实现查看 [ClearDruidAdConfiguration](../src/main/java/cn/regexp/coding/trainee/config/ClearDruidAdConfiguration.java)
 
-
+2. 生成百万数据
+   - 通过 Navicat 可视化工具生成（**推荐**）
+     ![NavicatGenData.png](../imgs/NavicatGenData.png)
+   - 通过 MySQL 存储过程生成（**太慢了，不建议**）[generate_data.sql](sql/generate_data.sql)
+   - 通过 Java 代码生成（**推荐
+     **）[CodingTraineeApplicationTests.java](../src/test/java/cn/regexp/coding/trainee/CodingTraineeApplicationTests.java)
