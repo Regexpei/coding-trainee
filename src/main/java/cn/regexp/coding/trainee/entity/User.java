@@ -1,5 +1,6 @@
 package cn.regexp.coding.trainee.entity;
 
+import com.mybatisflex.annotation.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,6 +17,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class User {
 
+    @Id
     private Long id;
 
     private String name;

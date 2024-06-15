@@ -4,6 +4,7 @@ import cn.regexp.coding.trainee.entity.User;
 import cn.regexp.coding.trainee.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -24,5 +25,11 @@ public class UserController {
     public List<User> selectAll() {
         // 不涉及业务，这里直接使用持久层对象操作，规范应该是调用 Service 层
         return userMapper.selectAll();
+    }
+
+    // localhost:8080/selectByName/Ethel Rodriguez
+    @GetMapping("/selectByName/{name}")
+    public List<User> selectByName(@PathVariable String name) {
+        return userMapper.selectByName(name);
     }
 }

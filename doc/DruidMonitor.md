@@ -99,15 +99,24 @@ stat：用于统计监控信息，可以通过它来获取连接池的连接数�
 类。
 > https://github.com/alibaba/druid/wiki/配置_StatFilter
 
+   - `spring.datasource.druid.filter.stat.enabled` **用于开启统计自定义配置功能，若不开启，将使用默认配置**
    - `spring.datasource.druid.filter.stat.slow-sql-millis` 用来配置 SQL 慢的标准，即执行时间超过给定时间的就是慢，默认值为3000（3秒），单位毫秒。
-   - `spring.datasource.druid.filter.stat.log-slow-sql` 配置是否将慢 SQL 通过日志输出。
+   - `spring.datasource.druid.filter.stat.log-slow-sql` 配置是否将慢 SQL 通过日志输出
+   - `spring.datasource.druid.filter.stat.slow-sql-log-level` 配置日志打印级别（默认为 ERROR）
 
-```properties
-# 慢 SQL 标准，超过 1 秒则为慢 SQL
-spring.datasource.druid.filter.stat.slow-sql-millis=1000
-# 将慢 SQL 通过日志输出
-spring.datasource.druid.filter.stat.log-slow-sql=true
-```
+ ```properties
+ # 开启 stat 过滤器统计自定义配置功能
+ spring.datasource.druid.filter.stat.enabled=true
+ # 慢 SQL 标准，超过 0.5 秒则为慢 SQL
+ spring.datasource.druid.filter.stat.slow-sql-millis=500
+ # 将慢 SQL 通过日志输出
+ spring.datasource.druid.filter.stat.log-slow-sql=true
+ # 慢 SQL 日志打印级别（默认为 ERROR）
+ spring.datasource.druid.filter.stat.slow-sql-log-level=WARN
+ ```
+效果展示：
+
+![SlowSqlLog.png](../imgs/SlowSqlLog.png)
 
 2. log4j: 用于记录日志，将日志信息通过SLF4J接口输出。
 3. wall: 防火墙过滤器，用于防止SQL注入等攻击

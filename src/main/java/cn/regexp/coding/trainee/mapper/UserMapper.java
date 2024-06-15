@@ -18,4 +18,7 @@ public interface UserMapper extends BaseMapper<User> {
     @Override
     @Select("select id, name, age from user")
     List<User> selectAll();
+
+    @Select("select id, name, age from user where name = #{name}")
+    List<User> selectByName(String name);
 }
