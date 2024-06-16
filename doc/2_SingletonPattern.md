@@ -1,4 +1,6 @@
-### 单例模式（Singleton Pattern）
+## 单例模式（Singleton Pattern）
+
+### 一、介绍
 
 单例模式，就是采用某些方法来确保在整个软件系统中一个类**只有一个实例**，并提供一个**静态方法**来获取该实例。
 
@@ -18,6 +20,8 @@
 - 双重检查
 - 静态内部类
 - 枚举
+
+### 二、实现
 
 #### 1. 饿汉式（静态变量）<span style="color: cornflowerblue">【可用】</span>
 
@@ -90,3 +94,33 @@
 参考：[Enum.java](../src/main/java/cn/regexp/coding/trainee/pattern/singleton/Enum.java)
 
 > Effective Java 作者提倡的方式
+
+### 三、拓展
+
+#### 破坏单例模式
+
+##### 1. 通过序列化、反序列化破坏单例模式
+
+参考：[SingletonTest#testBreakSingletonBySerializable](../src/test/java/cn/regexp/coding/trainee/pattern/SingletonTest.java)
+     
+**解决方案**：在类中添加`readResolve()`方法，并返回已创建的实例对象。该方法会在反序列化时通过反射进行调用，并返回方法的值；若没有定义，则返回新 new 的对象。
+
+参考：[StaticInnerClassDestroy#readResolve](../src/main/java/cn/regexp/coding/trainee/pattern/singleton/StaticInnerClass.java)
+
+> **源码追踪**：
+> 
+> java.io.ObjectInputStream.readObject() →
+> java.io.ObjectInputStream.readObject(java.lang.Class<?>) →
+> java.io.ObjectInputStream.readObject0 →
+> java.io.ObjectInputStream.readOrdinaryObject →
+> java.io.ObjectStreamClass.hasReadResolveMethod →
+> java.io.ObjectStreamClass.invokeReadResolve
+> 
+> **最后判断是否有`readResolve()`方法，有则调用该方法**
+
+
+##### 2. 通过反射破坏单例模式
+
+参考：[SingletonTest#testBreakSingletonByReflect](../src/test/java/cn/regexp/coding/trainee/pattern/SingletonTest.java)
+
+

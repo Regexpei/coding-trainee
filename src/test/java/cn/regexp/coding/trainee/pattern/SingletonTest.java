@@ -8,6 +8,12 @@ import cn.regexp.coding.trainee.pattern.singleton.*;
 import com.alibaba.fastjson2.JSON;
 import org.junit.Test;
 
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.lang.reflect.Constructor;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Set;
 
 /**
@@ -105,6 +111,60 @@ public class SingletonTest {
 
         System.out.println("实例个数：" + set.size());
         System.out.println("实例对象：" + JSON.toJSONString(set));
+    }
+
+    /**
+     * 测试通过序列化、反序列化破坏单例模式
+     */
+    @Test
+    public void testBreakSingletonBySerializable() {
+        // 获取对象
+        StaticInnerClassDestroy instance = StaticInnerClassDestroy.getInstance();
+
+        Path path = Paths.get("doc\\" + instance.getClass().getSimpleName() + ".txt");
+        try (ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(path))) {
+            // 将类信息写到本地文件
+            oos.writeObject(instance);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try (ObjectInputStream oos = new ObjectInputStream(Files.newInputStream(path))) {
+            StaticInnerClassDestroy object = (StaticInnerClassDestroy) oos.readObject();
+            System.out.println(object);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try (ObjectInputStream oos = new ObjectInputStream(Files.newInputStream(path))) {
+            StaticInnerClassDestroy object = (StaticInnerClassDestroy) oos.readObject();
+            System.out.println(object);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 测试通过反射破坏单例模式
+     */
+    @Test
+    public void testBreakSingletonByReflect() {
+        try {
+            // 获取字节码对象
+            Class<StaticInnerClass> aClass = StaticInnerClass.class;
+            // 获取无参构造方法对象
+            Constructor<StaticInnerClass> constructor = aClass.getDeclaredConstructor();
+            // 取消访问检查
+            constructor.setAccessible(true);
+            // 创建对象
+            StaticInnerClass staticInnerClass = constructor.newInstance();
+            System.out.println(staticInnerClass);
+
+            StaticInnerClass staticInnerClass1 = constructor.newInstance();
+            System.out.println(staticInnerClass1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
