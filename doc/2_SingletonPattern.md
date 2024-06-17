@@ -8,7 +8,7 @@
 - 需要频繁创建和销毁对象
 - 创建对象很耗时或很耗资源
 
-在 JDK 中的 Runtime（饿汉式）、MyBatis 的 SqlSessionFactory 都采用了单例模式进行实现，而在我们实际开发项目中，数据库连接池、线程池也都需要采用单例模式进行实现。
+在 JDK 中的 Runtime（饿汉式）、MyBatis 的 SqlSessionFactory 中都采用了单例模式进行实现，而在我们实际开发项目中，数据库连接池、线程池也都需要采用单例模式进行实现。
 
 **实现方式（8种）：**
 
@@ -41,7 +41,7 @@
 
 优点：能够起到懒加载的效果。
 
-缺点：只能在单线程下使用，多线程中会产生多个实例。
+缺点：只能在单线程下使用，多线程中可能会产生多个实例。
 
 参考：[LazyUnsafe.java](../src/main/java/cn/regexp/coding/trainee/pattern/singleton/LazyUnsafe.java)
 
@@ -56,7 +56,7 @@
 #### 5. 懒汉式（线程不安全，同步代码块）<span style="color: red">【不推荐使用】</span>
 
 该方式是对懒汉式（线程安全，同步方法）的改进，但是这种方式并**不能起到线程安全的作用**。因为，当有多个线程通过 if
-判断后，会自旋去获取锁，获取到锁之后就会执行初始化实例的代码，这样将会产生多个实例。
+判断后，会自旋地去获取锁，获取到锁之后就会执行初始化实例的代码，这样将会产生多个实例。
 
 参考：[LazySyncCodeBlock.java](../src/main/java/cn/regexp/coding/trainee/pattern/singleton/LazySyncCodeBlock.java)
 
