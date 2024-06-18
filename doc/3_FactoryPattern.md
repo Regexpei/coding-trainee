@@ -6,6 +6,8 @@
 
 工厂模式将对象的创建与使用相分离，降低了代码的耦合度，提高了系统的灵活性和可维护性。
 
+在 JDK 中的 Calendar、MyBatis 的 SqlSessionFactory 、Spring 的 BeanFactory 中都采用了工厂模式进行实现。
+
 **实现方式（3种）：**
 - **简单工厂模式**
 - **工厂方法模式**
