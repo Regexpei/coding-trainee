@@ -1,5 +1,10 @@
 package cn.regexp.coding.trainee.pattern;
 
+import cn.regexp.coding.trainee.pattern.factory.ebstract.IFactory;
+import cn.regexp.coding.trainee.pattern.factory.ebstract.ILaptop;
+import cn.regexp.coding.trainee.pattern.factory.ebstract.IPhone;
+import cn.regexp.coding.trainee.pattern.factory.ebstract.impl.HonourFactory;
+import cn.regexp.coding.trainee.pattern.factory.ebstract.impl.HuaweiFactory;
 import cn.regexp.coding.trainee.pattern.factory.method.FerrariFactory;
 import cn.regexp.coding.trainee.pattern.factory.method.ICar;
 import cn.regexp.coding.trainee.pattern.factory.method.ICarFactory;
@@ -77,5 +82,38 @@ public class FactoryTest {
         lamborghiniCar.start();
         lamborghiniCar.run();
         lamborghiniCar.stop();
+    }
+
+    /**
+     * 测试抽象工厂模式
+     */
+    @Test
+    public void testAbstractFactory() {
+        String brand = "honour";
+        IFactory factory = getFactory(brand);
+        if (factory == null) {
+            return;
+        }
+
+        IPhone phone = factory.createPhone();
+        phone.call();
+        phone.sendMsg();
+
+        ILaptop laptop = factory.createLaptop();
+        laptop.work();
+        laptop.learn();
+    }
+
+    private static IFactory getFactory(String brand) {
+        IFactory factory = null;
+        switch (brand) {
+            case "huawei":
+                factory = new HuaweiFactory();
+                break;
+            case "honour":
+                factory = new HonourFactory();
+                break;
+        }
+        return factory;
     }
 }
