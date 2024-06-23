@@ -1,5 +1,7 @@
 package cn.regexp.coding.trainee.pattern;
 
+import cn.regexp.coding.trainee.pattern.factory.config.Logger;
+import cn.regexp.coding.trainee.pattern.factory.config.LoggerFactory;
 import cn.regexp.coding.trainee.pattern.factory.ebstract.IFactory;
 import cn.regexp.coding.trainee.pattern.factory.ebstract.ILaptop;
 import cn.regexp.coding.trainee.pattern.factory.ebstract.IPhone;
@@ -116,4 +118,18 @@ public class FactoryTest {
         }
         return factory;
     }
+
+
+    @Test
+    public void testConfigFactory() {
+        Logger logger = LoggerFactory.getLogger("console");
+        logger.log("控制台输出日志");
+
+        logger = LoggerFactory.getLogger("file");
+        logger.log("日志输出到文件中");
+
+        logger = LoggerFactory.getLogger("database");
+        logger.log("数据库记录日志");
+    }
+
 }
