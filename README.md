@@ -22,3 +22,16 @@ JDK 1.8
 ##### idea添加测试方法模板
 
 ![CreateTestMethodTemplate.png](imgs/CreateTestMethodTemplate.png)
+
+##### 简单方法只占一行
+
+当某个方法只有 {} 时，使用 IDEA 的代码格式化功能，会自动进行换行，如下：
+
+```java
+public void test() {
+}
+```
+
+通过以下配置则可以让方法只占一行
+
+![SimpleMethodOneLine.png](imgs/SimpleMethodOneLine.png)
