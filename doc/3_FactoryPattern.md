@@ -74,3 +74,18 @@
 
 
 参考：[AbstractFactory](../src/main/java/cn/regexp/coding/trainee/pattern/factory/ebstract)
+
+### 三、JDK 源码
+
+Collection.iterator() 方法，返回一个迭代器，迭代器中包含一个工厂类，通过工厂类来创建迭代器。
+
+![CollectionUML.png](../imgs/CollectionUML.png)
+
+如图，Collection 接口为抽象工厂类，ArrayList 为具体工厂类，Iterator 接口为抽象产品类，ArrayList 中的 Iter 内部类为具体产品类，
+通过 iterator() 方法来创建具体的产品类对象。
+
+> **通过 IDEA 查看 UML图方法**：
+> 
+> 使用 Ctrl + 鼠标单击 选中需要展示的类，右键选中 Diagrams -> Show Diagram.../Show Diagrams Popup...
+> 
+> ![ViewUMLByIdea.png](../imgs/ViewUMLByIdea.png)
