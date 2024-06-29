@@ -49,7 +49,7 @@ Cloneable 接口是一个**标记接口**，类似 Serializable 接口，它没�
 
 参考：[file](../src/main/java/cn/regexp/coding/trainee/pattern/prototype/file)
 
-#### 六、源码解析
+### 六、源码解析
 
 从 Object 类中可以看到 clone() 一个 native 方法，采用 C++ 实现，因此执行性能很高。
 
