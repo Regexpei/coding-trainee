@@ -8,9 +8,9 @@ import java.lang.reflect.Proxy;
 /**
  * @author Regexpei
  * @date 2024/7/7 22:25
- * @description 代理对象工厂
+ * @description JDK 代理对象工厂
  */
-public class TicketProxyFactory {
+public class JdkProxyFactory {
 
     // 目标对象
     private final RailwayStation railwayStation = new RailwayStation();

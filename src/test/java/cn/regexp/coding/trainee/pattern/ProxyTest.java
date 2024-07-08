@@ -1,7 +1,9 @@
 package cn.regexp.coding.trainee.pattern;
 
+import cn.regexp.coding.trainee.pattern.proxy.RailwayStation;
 import cn.regexp.coding.trainee.pattern.proxy.SellTicket;
-import cn.regexp.coding.trainee.pattern.proxy.jdk.TicketProxyFactory;
+import cn.regexp.coding.trainee.pattern.proxy.cglib.CGLibProxyFactory;
+import cn.regexp.coding.trainee.pattern.proxy.jdk.JdkProxyFactory;
 import cn.regexp.coding.trainee.pattern.proxy.xtatic.TicketProxyPoint;
 import org.junit.Test;
 
@@ -21,11 +23,22 @@ public class ProxyTest {
     @Test
     public void testJdkProxy() {
         // 获取到的是代理对象
-        SellTicket proxyObject = new TicketProxyFactory().getProxyObject();
+        SellTicket proxyObject = new JdkProxyFactory().getProxyObject();
         proxyObject.sellTicket("小二", 100.0);
         System.out.println(proxyObject.getClass());
 
         // 让程序一直跑，然后通过反编译获取代码，否则，程序停止，代理类将在内存中被释放
         // while (true){}
     }
+
+    @Test
+    public void testCGLibProxy() {
+        RailwayStation proxyObject = (RailwayStation) CGLibProxyFactory.getProxy(RailwayStation.class);
+        proxyObject.sellTicket("小二", 100.0);
+        System.out.println(proxyObject.getClass());
+
+        // 让程序一直跑，然后通过反编译获取代码，否则，程序停止，代理类将在内存中被释放
+        // while (true){}
+    }
+
 }
