@@ -62,6 +62,21 @@
             <artifactId>hutool-all</artifactId>
             <version>5.8.25</version>
         </dependency>
+
+        <!-- InfluxDB 客户端依赖，用于与 InfluxDB 进行通信和数据交互 -->
+        <dependency>
+            <groupId>com.influxdb</groupId>
+            <artifactId>influxdb-client-java</artifactId>
+            <version>6.9.0</version>
+        </dependency>
+
+        <!-- OkHttp 依赖，作为 InfluxDB 客户端的网络通信库，提供高效的HTTP请求处理 -->
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>4.12.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>
