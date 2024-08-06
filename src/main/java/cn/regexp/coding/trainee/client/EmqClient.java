@@ -23,9 +23,9 @@ public class EmqClient {
 
     @Autowired
     private MqttProperties mqttProperties;
-
-    private IMqttClient mqttClient;
+    @Autowired
     private MqttCallback mqttCallback;
+    private IMqttClient mqttClient;
 
     /**
      * 在构造函数加载后初始化 MQTT 客户端

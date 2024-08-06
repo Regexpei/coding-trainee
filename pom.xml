@@ -62,12 +62,18 @@
             <artifactId>hutool-all</artifactId>
             <version>5.8.25</version>
         </dependency>
-
+        <!-- Eclipse Paho MQTT 客户端 -->
         <dependency>
             <groupId>org.eclipse.paho</groupId>
             <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
             <version>1.2.2</version>
         </dependency>
+        <!-- Spring Boot 核心 Web 依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
