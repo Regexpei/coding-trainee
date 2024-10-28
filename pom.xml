@@ -15,9 +15,6 @@
     <description>
         coding-trainee（代码练习生），该项目主要包含日常学习、工作实践、案例分享等内容。在这里，我将分享自己日常积累的编程知识、编程技能，并通过实际案例分享学习成果和心得。
     </description>
-    <properties>
-        <java.version>8</java.version>
-    </properties>
 
     <dependencies>
         <!-- Spring Boot的核心依赖，提供了自动配置、日志、YAML等核心功能 -->
@@ -61,6 +58,12 @@
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
             <version>5.8.25</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>easyexcel</artifactId>
+            <version>3.3.4</version>
         </dependency>
     </dependencies>
 
